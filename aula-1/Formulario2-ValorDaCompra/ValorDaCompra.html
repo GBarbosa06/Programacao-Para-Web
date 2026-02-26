@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Formulário com JavaScript</title>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <h1>Calculadora de Valor Final da Compra</h1>
+    <form id="Form">
+        <label for="valorCompra">
+            <p>Digite o valor da compra:</p>
+            <input type="number" id="valorCompra" name="valorCompra" required>
+        </label>     
+
+        <label for="numeroParcelas">
+             <p>Digite o número de parcelas:</p>
+            <input type="number" name="numeroParcelas" id="numeroParcelas" required>
+        </label>
+
+        <label for="taxaJuros">
+            <p>Digite a taxa de juros mensal (em %):</p>
+            <input type="number" name="taxaJuros" id="taxaJuros" required>
+        </label>
+        <br><br>
+
+        <button type="submit">Calcular</button>
+    </form>
+
+    <p class="resultado">O valor de cada parcela (juros simples): <span id="resultadoParcela"></span> </p>
+    <p class="resultado">O valor final da compra: <span id="resultadoFinal"></span></p>
+</body>
+
+</html>

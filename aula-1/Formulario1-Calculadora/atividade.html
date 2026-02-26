@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Formulário com JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <h1>Calculadora de Quadrado</h1>
+    <form id="numberForm">
+        <label for="number">Digite um número:
+            <input type="number" id="number" name="number" required>
+        </label>
+        <label for="typeResult">
+            <select name="operationType" id="operationType">
+                <option value="square">Quadrado</option>
+                <option value="cube">Cubo</option>
+                <option value="both">Ambos</option>
+            </select>
+        </label>
+        
+
+        <button type="submit">Calcular Quadrado</button>
+    </form>
+    <p id="squareP" class="hidden">O quadrado é: <span id="squareResult"></span></p>
+    <p id="cubeP" class="hidden">O cubo é é: <span id="cubeResult"></span></p>
+</body>
+
+</html>
