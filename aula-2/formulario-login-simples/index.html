@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula Prática</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+
+</head>
+
+<body>
+    <h2 id="area">Bem-vindo!</h2>
+    <div class="nonLoggedArea">
+        <form id="login-form">
+            <label for="nome">
+                <span>Seu nome: </span>
+                <input type="text" name="nome" id="nome">
+            </label>
+            <label for="curso">
+                <span>Seu curso: </span>
+                <input type="text" name="curso" id="curso">
+            </label>
+            <button id="submitBtn">Acessar</button>
+        </form>
+
+    </div>
+
+    <div class="loggedArea">
+        <span id="bemVindo"></span>
+
+        <form id="notas-form">
+            <label for="nota1">
+                <span>Nota 1:</span>
+                <input type="number" name="nota1" id="nota1" min="0" max="10" step="0.1">
+            </label>
+            <label for="nota2">
+                <span>Nota 2:</span>
+                <input type="number" name="nota2" id="nota2" min="0" max="10" step="0.1">
+            </label>
+            <label for="nota3">
+                <span>Nota 3:</span>
+                <input type="number" name="nota3" id="nota3" min="0" max="10" step="0.1">
+            </label>
+            <button type="submit">Calcular média</button>
+        </form>
+
+        <p id="resultadoMedia"></p>
+    </div>
+
+    <div id="popup" class="popup hidden">
+        <div class="popup-content">
+            <p>Você saiu da conta. Até mais!</p>
+        </div>
+    </div>
+</body>
+
+</html>
