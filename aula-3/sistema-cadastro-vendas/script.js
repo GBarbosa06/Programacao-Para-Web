@@ -1,7 +1,4 @@
 var id = 1;
-var venda = {
-
-}
 
 const listaVendas = document.getElementById('listaVendas');
 const adicionarElemento = (nomeVendedor, valorVenda) => {
@@ -10,15 +7,26 @@ const adicionarElemento = (nomeVendedor, valorVenda) => {
 
         let desconto = valorVenda * 0.1;
         let valorFinal = valorVenda - desconto;
+
+        const data = new Date();
+        const dataFormatada = data.toLocaleString('pt-BR', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+        });
+
         
         item.innerHTML = `
         <td>${id}</td>
         <td>${nomeVendedor}</td>
-        <td>${valorVenda}</td>
-        <td>${desconto}</td>
-        <td>${valorFinal}</td>
-        <td>${Date.now}</td>
-        <td><button className="removeBtn">Remover</button></td>
+        <td>R% ${valorVenda}</td>
+        <td>R% ${desconto.toFixed(2)}</td>
+        <td>R$ ${valorFinal.toFixed(2)}</td>
+        <td>${dataFormatada}</td>
+        <td><button class="removeBtn">Remover</button></td>
         `;
         
         listaVendas.appendChild(item);
@@ -28,19 +36,29 @@ const adicionarElemento = (nomeVendedor, valorVenda) => {
 const submitBtn = document.getElementById('submitBtn');
 submitBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    const nomeVendedor = document.getElementById('nomeVendedor').value;
-    const valorVenda = document.getElementById('valorVenda').value;
+    const nomeInput = document.getElementById('nomeVendedor');
+    const valorInput = document.getElementById('valorVenda');
+
+    const nomeVendedor = nomeInput?.value;
+    const valorVenda = parseFloat(valorInput?.value);
 
     if (nomeVendedor.trim() === '' || nomeVendedor.trim() === null || isNaN(valorVenda)) {
         alert("Existem campos vazios...");
-        document.getElementById('nomeVendedor').focus();
+        nomeInput?.focus();
         return;
     }
     adicionarElemento(nomeVendedor, valorVenda);
+    if (nomeInput) nomeInput.value = '';
+    if (valorInput) valorInput.value = '';
+    nomeInput?.focus();
+    return;
+
 
 });
 
 
-const remover = () => {
-
-}
+listaVendas.addEventListener('click', (e) => {
+    if (e.target.classList.contains('removeBtn')) {
+        e.target.closest('tr').remove();
+    }
+});
