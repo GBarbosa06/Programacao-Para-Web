@@ -21,7 +21,7 @@ const adicionarElemento = (nomeVendedor, valorVenda) => {
         <td><button className="removeBtn">Remover</button></td>
         `;
         
-        listaDiv.appendChild(item);
+        listaVendas.appendChild(item);
     id++;
 }
 
