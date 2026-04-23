@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Somador de Salários</title>
+  </head>
+  <body>
+    <h1>Visão Geral de Salários</h1>
+
+    <form action="/salarios" method="GET" id="form">
+      <div id="inputs">
+        <input
+          type="number"
+          name="salarios[]"
+          placeholder="Salário 1"
+          required
+        />
+      </div>
+
+      <br />
+      <button type="button" onclick="addInput()">Adicionar salário</button>
+      <button type="submit">Gerar resultados</button>
+    </form>
+
+    <script>
+      function addInput() {
+        const div = document.getElementById("inputs");
+
+        const input = document.createElement("input");
+        input.type = "number";
+        input.name = "salarios[]";
+        input.placeholder = "Outro salário";
+        input.required = true;
+
+        div.appendChild(document.createElement("br"));
+        div.appendChild(input);
+      }
+    </script>
+  </body>
+</html>
