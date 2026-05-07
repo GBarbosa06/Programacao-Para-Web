@@ -1,0 +1,41 @@
+import { useState } from "react";
+
+export default function GuessGame() {
+  const [secret] = useState(() => Math.floor(Math.random() * 101));
+  const [guess, setGuess] = useState("");
+  const [message, setMessage] = useState("Tente adivinhar o número de 0 a 100");
+
+  const handleGuess = () => {
+    const number = Number(guess);
+
+    if (number === secret) {
+      setMessage("Acertou!");
+    } else if (number < secret) {
+      setMessage("O número é maior!");
+    } else {
+      setMessage("O número é menor!");
+    }
+
+    setGuess("");
+  };
+
+  return (
+    <div>
+
+      <p>{message}</p>
+
+      <input
+        type="number"
+        min="0"
+        max="100"
+        value={guess}
+        onChange={(e) => setGuess(e.target.value)}
+        placeholder="número"
+      />
+
+      <button onClick={handleGuess}>
+        Tentar
+      </button>
+    </div>
+  );
+}
